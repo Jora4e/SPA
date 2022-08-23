@@ -1,0 +1,155 @@
+.container {
+  font-family: 'Montserrat';
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.reg-benefits__descr {
+  display: flex;
+  align-items: start;
+  margin-bottom: 20px;
+}
+
+.reg-benefits__icon {
+  width: 16px;
+  height: 16px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.reg-benefits__title {
+  line-height: 1;
+  font-weight: bold;
+  font-size: 32px;
+  margin-bottom: 25px;
+}
+
+.reg-form__input {
+  width: 350px;
+  height: 50px;
+  border-radius: 8px;
+  border: 2px solid rgba(gray, 0.4);
+  padding: 0 30px 0 12px;
+
+  &:focus {
+    outline: none !important;
+    border-color: rgba(59, 73, 223);
+
+    & + label {
+      color: rgba(59, 73, 223);
+    }
+  }
+}
+
+.reg-form__section {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.reg-form__label {
+  font-size: 11px;
+  position: absolute;
+  left: 15px;
+  top: -6px;
+  background: #fff;
+}
+
+.reg-form__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  background: rgba(59, 73, 223);
+  margin: 0;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 18px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.reg-benefits {
+  max-width: 285px;
+}
+
+.reg-form, .reg-benefits {
+  margin: 0 50px;
+}
+.reg-form{
+  max-width: 400px;
+  width: 100%;
+}
+.reg{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reg-form__img {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  right: 10px;
+}
+
+.pass-valid-check {
+  position: absolute;
+  width: 200px;
+  height: 130px;
+  border-radius: 8px;
+  border: 1px solid rgba(gray, 0.4);
+  right: -210px;
+  padding: 15px;
+  font-size: 12px;
+}
+
+.pass-length-cont {
+  width: 100%;
+  height: 4px;
+  background-color: rgba(gray, 0.2);
+  border-radius: 8px;
+  margin: {
+    top: 10px;
+    bottom: 10px;
+  }
+}
+
+.pass-length {
+  width: 80%;
+  height: 100%;
+  background-color: green;
+  border-radius: 8px;
+  transition: width 1s;
+}
+
+.calendar::ng-deep {
+  .p-highlight {
+    color: Red;
+  }
+}
+
+mat-form-field {
+  width: 100%;
+
+  &::ng-deep {
+    .mat-form-field-wrapper {
+      padding-bottom: 0;
+    }
+    .mat-form-field-underline{
+      bottom: 0;
+    }
+  }
+}
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: rgba(59, 73, 223);
+}
+mat-checkbox{
+  margin-top: 15px;
+}
+.green{
+  color:green;
+}

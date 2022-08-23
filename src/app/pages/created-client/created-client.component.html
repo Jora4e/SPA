@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="client" *ngFor="let user of userData">
+    <div class="client__doc-img">
+      <img [src]="user.docImg" alt="">
+    </div>
+    <div class="client__info">
+      <div class="client__info__block">
+        <p class="client__info__title">Full Name</p>
+        <p class="client__info__descr">{{user.name}} {{user.middleName}} {{user.lastName}} </p>
+      </div>
+      <div class="client__info__block">
+        <p class="client__info__title">Email</p>
+        <p class="client__info__descr">{{user.email}}</p>
+      </div>
+      <div class="client__info__block">
+        <p class="client__info__title">Birth Day</p>
+        <p class="client__info__descr">{{user.dateBirth}}</p>
+      </div>
+      <div class="client__info__block">
+        <p class="client__info__title">Phone Number</p>
+        <p class="client__info__descr">{{user.phoneNumber}} </p>
+      </div>
+      <div class="client__info__block">
+        <p class="client__info__title">Gender</p>
+        <p class="client__info__descr">{{user.gender}}</p>
+      </div>
+      <div class="client__info__block">
+        <p class="client__info__title">Client Group</p>
+        <p class="client__info__descr" *ngFor="let client of user.clientGroup">{{client?.name}}</p>
+      </div>
+      <div class="client__info__block">
+        <p class="client__info__title">Country</p>
+        <p class="client__info__descr">{{user.country}}</p>
+      </div>
+      <div class="client__info__block">
+        <p class="client__info__title">City</p>
+        <p class="client__info__descr">{{user.city}}</p>
+      </div>
+    </div>
+  </div>
+</div>

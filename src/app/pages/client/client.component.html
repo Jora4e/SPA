@@ -1,0 +1,110 @@
+<div class="container">
+  <div class="reg">
+    <div class="page-title">
+      <h1>Step 1 - Client</h1>
+    </div>
+    <div class="reg-form">
+      <form action="" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="reg-form__section">
+          <mat-form-field appearance="outline">
+            <mat-icon *ngIf="myForm.get('lastName')?.valid" matSuffix class="green">done</mat-icon>
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Ex: Doe" type="text" formControlName="lastName">
+          </mat-form-field>
+        </div>
+        <div class="reg-form__section">
+          <mat-form-field appearance="outline">
+            <mat-icon *ngIf="myForm.get('name')?.valid" matSuffix class="green">done</mat-icon>
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Ex: Jhon" type="text" formControlName="name">
+          </mat-form-field>
+        </div>
+        <div class="reg-form__section">
+          <mat-form-field appearance="outline">
+            <mat-icon *ngIf="myForm.get('middleName')?.valid" matSuffix class="green">done</mat-icon>
+            <mat-label>Midle Name</mat-label>
+            <input matInput placeholder="Ex: Jhon" type="text" formControlName="middleName">
+          </mat-form-field>
+        </div>
+        <div class="reg-form__section">
+          <mat-form-field appearance="outline">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker class="datepicker__picker" #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="reg-form__section">
+          <mat-form-field appearance="outline">
+            <mat-icon *ngIf="myForm.get('phone')?.valid" matSuffix class="green">done</mat-icon>
+            <mat-label>Phone</mat-label>
+            <input matInput placeholder="Ex: 595888356" type="text" formControlName="phone">
+          </mat-form-field>
+        </div>
+        <div class="reg-form__section">
+          <mat-form-field appearance="outline">
+            <mat-icon *ngIf="myForm.get('email')?.valid" matSuffix class="green">done</mat-icon>
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Ex: Jhon@gmail.com" type="text" formControlName="email">
+          </mat-form-field>
+        </div>
+        <div class="reg-form__section">
+          <mat-form-field appearance="fill">
+            <mat-label>Select Gender</mat-label>
+            <mat-select formControlName="gender">
+              <mat-option *ngFor="let gen of gender" [value]="gen.gender">
+                {{gen.gender}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="reg-form__section">
+          <mat-form-field appearance="fill">
+            <mat-label>Client group</mat-label>
+            <mat-select multiple formControlName="client">
+              <mat-option *ngFor="let client of clientArr" [value]="client">{{client.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="reg-form__section">
+          <mat-form-field appearance="fill">
+            <mat-label>Select Coordinator</mat-label>
+            <mat-select formControlName="coordinator">
+              <mat-option *ngFor="let coor of coordinator" [value]="coor.coordinator">
+                {{coor.coordinator}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="reg-form__section">
+          <mat-form-field appearance="outline">
+      <span mat-icon-button matSuffix (click)="hide = !hide">
+        <mat-icon matSuffix class="gray">
+          {{hide ? 'visibility_off' : 'visibility'}}
+        </mat-icon>
+      </span>
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Placeholder" [type]="hide ? 'password' : 'text'" formControlName="password"
+                   (keyup)="Strengths()">
+          </mat-form-field>
+          <div class="pass-valid-check"
+               *ngIf="(myForm.get('password')?.value && (myForm.get('password')?.dirty) || myForm.get('password')?.touched)">
+            <p>{{ myForm.get('password')?.invalid ? 'Weak' : 'Strong'}} Password</p>
+            <div class="pass-length-cont">
+              <div class="pass-length"
+                   [ngStyle]="{'background' : myForm.get('password')?.invalid ? 'red' : 'green' , 'width' : passwordLengthIndicator + '%'}"></div>
+            </div>
+            {{ myForm.get('password')?.invalid ? 'Password is too weak' : 'Great! This Will do. Just do not forget Him'}}
+          </div>
+        </div>
+
+        <button type="submit" class="reg-form__btn">Step 2</button>
+        <mat-checkbox formControlName="termsCheckbox" (change)="isChecked = !isChecked" required>
+        <span [ngStyle]="{'color' :(!isChecked && isSubmitted) ? 'red' : 'black'  }">
+          Do not send SMS
+        </span>
+        </mat-checkbox>
+      </form>
+    </div>
+  </div>
+</div>

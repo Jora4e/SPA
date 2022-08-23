@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="reg">
+    <div class="page-title">
+      <h1>Step 1 - Client</h1>
+    </div>
+    <div class="reg-form">
+      <form action="" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="reg-form__section">
+          <mat-form-field appearance="fill">
+            <mat-label>Select Document</mat-label>
+            <mat-select formControlName="document">
+              <mat-option *ngFor="let doc of documentTypes" [value]="doc.name">
+                {{doc.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="reg-form__section">
+          <mat-form-field appearance="outline">
+            <mat-icon *ngIf="myForm.get('series')?.valid" matSuffix class="green">done</mat-icon>
+            <mat-label>Series</mat-label>
+            <input matInput placeholder="Ex: PSP23WEESD" type="text" formControlName="series">
+          </mat-form-field>
+        </div>
+        <div class="reg-form__section">
+          <mat-form-field appearance="outline">
+            <mat-icon *ngIf="myForm.get('docNumber')?.valid" matSuffix class="green">done</mat-icon>
+            <mat-label>Number</mat-label>
+            <input matInput placeholder="Ex: 225544863416" type="number" formControlName="docNumber">
+          </mat-form-field>
+        </div>
+        <div class="reg-form__section">
+          <mat-form-field appearance="outline">
+            <mat-icon *ngIf="myForm.get('issued')?.valid" matSuffix class="green">done</mat-icon>
+            <mat-label>Issued by</mat-label>
+            <input matInput placeholder="Ex: Municipal of Georgia" type="text" formControlName="issued">
+          </mat-form-field>
+        </div>
+        <div class="reg-form__section">
+          <mat-form-field appearance="outline">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker class="datepicker__picker" #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="reg-form__section">
+          <mat-form-field>
+            <ngx-mat-file-input  formControlName="file" placeholder="Basic Input" (change)="onImageChange($event)"></ngx-mat-file-input>
+            <mat-icon matSuffix>folder</mat-icon>
+          </mat-form-field>
+        </div>
+        <button type="submit" class="reg-form__btn">Client Page</button>
+      </form>
+    </div>
+  </div>
+</div>

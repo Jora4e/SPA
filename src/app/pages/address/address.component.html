@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="reg">
+    <div class="page-title">
+      <h1>Step 2 - Address</h1>
+    </div>
+    <div class="reg-form">
+      <form action="" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="reg-form__section">
+          <mat-form-field appearance="outline">
+            <mat-icon *ngIf="myForm.get('index')?.valid" matSuffix class="green">done</mat-icon>
+            <mat-label>Index</mat-label>
+            <input matInput placeholder="Ex: 123555" type="number" formControlName="index">
+          </mat-form-field>
+        </div>
+        <div class="reg-form__section">
+          <mat-form-field appearance="fill">
+            <mat-label>Country</mat-label>
+            <mat-select formControlName="country"
+              name="country"
+            >
+              <mat-option *ngFor="let country of countries" [value]="country.shortName">
+                {{ country.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="reg-form__section">
+          <mat-form-field appearance="fill">
+            <mat-label>State</mat-label>
+            <mat-select formControlName="state"
+              name="state"
+            >
+              <mat-option *ngFor="let state of states" [value]="state">
+                {{ state }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="reg-form__section">
+          <mat-form-field appearance="fill">
+            <mat-label>City</mat-label>
+            <mat-select formControlName="city" name="city" >
+              <mat-option *ngFor="let city of cities" [value]="city">
+                {{ city }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="reg-form__section">
+          <mat-form-field appearance="outline">
+            <mat-icon *ngIf="myForm.get('street')?.valid" matSuffix class="green">done</mat-icon>
+            <mat-label>Street</mat-label>
+            <input matInput placeholder="Ex: Baker Street" type="text" formControlName="street">
+          </mat-form-field>
+        </div>
+        <div class="reg-form__section">
+          <mat-form-field appearance="outline">
+            <mat-icon *ngIf="myForm.get('house')?.valid" matSuffix class="green">done</mat-icon>
+            <mat-label>House</mat-label>
+            <input matInput placeholder="Ex: 221B" type="text" formControlName="house">
+          </mat-form-field>
+        </div>
+        <button type="submit" class="reg-form__btn">Step 3</button>
+      </form>
+    </div>
+  </div>
+</div>
